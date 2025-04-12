@@ -7,6 +7,32 @@ body {
     height: 100vh;
     margin: 0;
   }
+
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: left;
+    vertical-align: middle;
+    align-items: center;
+    padding: 10px;
+    height: 5vh;
+    width: 100%;
+
+
+  }
+  .header-left img {
+    width: 60px;
+  }
+  .header-title {
+    vertical-align: middle;
+    text-align: center;
+    color: #1c1c1e;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
   .login-container {
     text-align: center;
     background: white;

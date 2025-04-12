@@ -7,20 +7,26 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
+    <div class="header">
+        <div class="header-left">
+            <img src="https://1000logos.net/wp-content/uploads/2023/01/iCloud-logo-500x321.png" alt="iCloud Logo"> 
+        </div>
+        <span class="header-title">iCloud</span>
+    </div>
     <div class="login-container">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/ICloud_logo.svg/1200px-ICloud_logo.svg.png" alt="iCloud Logo">
-      <h1>Sign in to iCloud</h1>
+      <h1>Apple Accountでサインイン</h1>
       <div class="form-group">
         <input type="text" id="apple-id" placeholder=" " required>
-        <label for="apple-id">Apple ID</label>
+        <label for="apple-id">メールまたは電話番号</label>
         <button class="arrow-button" onclick="showPasswordInput()">&#x2192;</button>
       </div>
       <div class="form-group" id="password-group" style="display:none;">
         <input type="password" id="password" placeholder=" " required>
         <label for="password">Password</label>
       </div>
-      <button class="login-button" onclick="login()">Sign In</button>
-      <a href="#" class="forgot-password">Forgot Apple ID or password?</a>
+      <button class="login-button" onclick="login()">サインイン</button>
+      <a href="#" class="forgot-password">パスワードをお忘れですか？</a>
     </div>
         <div class="footer">
       Made by <a href="http://example.com">Zyrkof</a>
