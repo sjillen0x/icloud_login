@@ -4,11 +4,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-  }
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  .header {
+.header {
     position: absolute;
     top: 0;
     left: 0;
@@ -19,21 +21,23 @@ body {
     padding: 10px;
     height: 5vh;
     width: 100%;
+    z-index: 10;
+}
 
-
-  }
-  .header-left img {
+.header-left img {
     width: 60px;
-  }
-  .header-title {
+}
+
+.header-title {
     vertical-align: middle;
     text-align: center;
     color: #1c1c1e;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 500;
     margin-left: 10px;
-  }
-  .login-container {
+}
+
+.login-container {
     text-align: center;
     background: white;
     padding: 30px;
@@ -41,21 +45,27 @@ body {
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     width: 90%;
     max-width: 400px;
-  }
-  .login-container img {
+    margin: 20px auto;
+    position: relative;
+}
+
+.login-container img {
     width: 60px;
     margin-bottom: 20px;
-  }
-  .login-container h1 {
+}
+
+.login-container h1 {
     font-size: 24px;
     color: #1c1c1e;
     margin-bottom: 40px;
-  }
-  .form-group {
+}
+
+.form-group {
     position: relative;
     margin-bottom: 20px;
-  }
-  .form-group input {
+}
+
+.form-group input {
     width: 100%;
     padding: 12px;
     border: 1px solid #d1d1d6;
@@ -65,12 +75,14 @@ body {
     box-sizing: border-box;
     transition: border-color 0.3s;
     padding-right: 50px; /* Make space for the arrow button */
-  }
-  .form-group input:focus {
+}
+
+.form-group input:focus {
     border-color: #007aff;
     outline: none;
-  }
-  .form-group label {
+}
+
+.form-group label {
     position: absolute;
     top: 10px;
     left: 12px;
@@ -79,15 +91,18 @@ body {
     color: #7d7d7d;
     transition: all 0.2s;
     pointer-events: none;
-  }
-  .form-group input:focus + label,
-  .form-group input:not(:placeholder-shown) + label {
+    z-index: 2;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
     top: -8px;
     left: 10px;
     font-size: 12px;
     color: #007aff;
-  }
-  .arrow-button {
+}
+
+.arrow-button {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -104,12 +119,15 @@ body {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s, color 0.3s;
-  }
-  .arrow-button:hover {
+    z-index: 3;
+}
+
+.arrow-button:hover {
     background-color: #007aff;
     color: white;
-  }
-  .login-button {
+}
+
+.login-button {
     width: 100%;
     padding: 12px;
     background: linear-gradient(135deg, #007aff, #005bb5);
@@ -120,37 +138,170 @@ body {
     cursor: pointer;
     display: none;
     transition: background 0.3s;
-  }
-  .login-button:hover {
+}
+
+.login-button:hover {
     background: linear-gradient(135deg, #005bb5, #003f8a);
-  }
-  .forgot-password {
+}
+
+.forgot-password {
     margin-top: 20px;
     color: #007aff;
     text-decoration: none;
     font-size: 14px;
     display: block;
-  }
-  .forgot-password:hover {
+}
+
+.forgot-password:hover {
     text-decoration: underline;
-  }.footer {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     font-size: 14px;
-    color: #000;
-    transition: color 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .footer a {
+    color: #1c1c1e;
+    z-index: 10;
+}
+
+.footer a {
     background: linear-gradient(145deg, #007aff, #005bb5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
     transition: background 0.3s ease;
-  }
-  
-  .footer a:hover {
+}
+
+.footer a:hover {
     color: linear-gradient(145deg, #007aff, #005bb5);
-  }
+}
+
+.form-group input.valid {
+    border-color: #007aff;
+}
+
+.form-group input.invalid {
+    border-color: #ff3b30;
+}
+
+.error-message {
+    color: #ff3b30;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: left;
+    padding-left: 12px;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+        display: block;
+        background: white;
+    }
+
+    .header {
+        position: relative;
+        padding: 15px;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .header-left img {
+        width: 40px;
+    }
+
+    .header-title {
+        font-size: 16px;
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 20px;
+        min-height: calc(100vh - 120px); /* Account for header and footer */
+        background: transparent;
+    }
+
+    .login-container h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+        background: white;
+        z-index: 2;
+    }
+
+    .form-group input {
+        padding: 10px;
+        font-size: 14px;
+        background: white;
+        border: 1px solid #e2e2e2;
+        position: relative;
+        z-index: 1;
+    }
+
+    .footer {
+        position: relative;
+        padding: 10px 0;
+        font-size: 12px;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .footer p {
+        padding: 0 10px;
+    }
+
+    .arrow-button {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        z-index: 3;
+    }
+
+    .error-message {
+        font-size: 11px;
+        bottom: -18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 10px;
+    }
+
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-container img {
+        width: 50px;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .arrow-button {
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+    }
+}
